@@ -1,0 +1,573 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: transparent;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+/* Left Controls */
+.controls-left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.control-btn {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: none;
+    background: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.control-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.control-btn svg {
+    color: #333;
+}
+
+
+/* .card-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Optional: centers the cards horizontally */
+  /* margin-right: 20px; */
+
+
+
+/* Card Wrapper */
+/* .card-wrapper {
+    position: relative;
+    width: 420px;
+    min-height: 500px;
+} */
+
+/* Profile Card */
+.profile-card {
+    
+    background: white;
+    border-radius: 24px;
+    padding: 48px 40px 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.profile-card:hover {
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+}
+
+.profile-header {
+    text-align: left;
+    margin-bottom: 32px;
+}
+
+.avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eee;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+.name {
+    font-size: 32px;
+    font-weight: 600;
+    color: #1a1a1a;
+    letter-spacing: -0.5px;
+}
+
+/* Profile Info */
+.profile-info {
+    margin-bottom: 32px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.info-row:last-child {
+    border-bottom: none;
+}
+
+.label {
+    font-size: 16px;
+    color: #666;
+    font-weight: 400;
+}
+
+.value {
+    font-size: 16px;
+    color: #1a1a1a;
+    font-weight: 500;
+}
+
+/* Actions */
+.actions {
+    display: flex;
+    gap: 16px;
+}
+
+.btn {
+    flex: 1;
+    padding: 14px 24px;
+    border-radius: 12px;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.btn-primary {
+    background: #1a1a1a;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary svg {
+    stroke: white;
+}
+
+.btn-secondary {
+    background: #f5f5f5;
+    color: #1a1a1a;
+}
+
+.btn-secondary:hover {
+    background: #e8e8e8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Form Card */
+/* ...existing code... */
+.form-card {
+    /* width */
+    width: 360px;
+    max-width: calc(100vw - 40px);
+
+    /* make the form never exceed the viewport height */
+    max-height: calc(100vh - 80px); /* adjust 80px if you need more/less space for header/controls */
+    height: auto;
+
+    /* allow internal scrolling when content is taller than available space */
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+
+    /* keep padding inside the measured height */
+    box-sizing: border-box;
+
+    /* visual styles (ensure these match your existing card styles) */
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+/* smaller screens */
+
+/* ...existing code... */
+
+.form-card.active {
+    opacity: 1;
+}
+
+.form-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 28px;
+    letter-spacing: -0.5px;
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 14px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    background: white;
+    color: #1a1a1a;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.form-input::placeholder {
+    color: #999;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #1a1a1a;
+    box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.05);
+}
+
+/* Category Options */
+.category-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.category-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 16px;
+    border-radius: 24px;
+    border: 2px solid;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 500;
+    position: relative;
+}
+
+.category-chip input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.chip-text {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.chip-text::before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    border: 2px solid;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+/* Emergency Style */
+.category-chip.checked-emergency {
+    border-color: #dc2626;
+    background: white;
+}
+
+.category-chip.checked-emergency .chip-text {
+    color: #dc2626;
+}
+
+.category-chip.checked-emergency .chip-text::before {
+    border-color: #dc2626;
+}
+
+.category-chip.checked-emergency input:checked ~ .chip-text::before {
+    background: #dc2626;
+    content: '✓';
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Important Style */
+.category-chip.checked-important {
+    border-color: #ea580c;
+    background: white;
+}
+
+.category-chip.checked-important .chip-text {
+    color: #ea580c;
+}
+
+.category-chip.checked-important .chip-text::before {
+    border-color: #ea580c;
+}
+
+.category-chip.checked-important input:checked ~ .chip-text::before {
+    background: #ea580c;
+    content: '✓';
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Urgent Style */
+.category-chip.checked-urgent {
+    border-color: #7c3aed;
+    background: white;
+}
+
+.category-chip.checked-urgent .chip-text {
+    color: #7c3aed;
+}
+
+.category-chip.checked-urgent .chip-text::before {
+    border-color: #7c3aed;
+}
+
+.category-chip.checked-urgent input:checked ~ .chip-text::before {
+    background: #7c3aed;
+    content: '✓';
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* No Rush Style */
+.category-chip.checked-norush {
+    border-color: #6b7280;
+    background: white;
+}
+
+.category-chip.checked-norush .chip-text {
+    color: #6b7280;
+}
+
+.category-chip.checked-norush .chip-text::before {
+    border-color: #6b7280;
+}
+
+.category-chip.checked-norush input:checked ~ .chip-text::before {
+    background: #6b7280;
+    content: '✓';
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hover Effects */
+.category-chip:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Buttons */
+.btn-create {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    margin-bottom: 12px;
+    background: #1a1a1a;
+    color: white;
+}
+
+.btn-create:hover {
+    background: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-close {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    background: #ef4444;
+    color: white;
+}
+
+.btn-close:hover {
+    background: #dc2626;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(239, 68, 68, 0.3);
+}
+
+/* Right Color Indicators */
+.color-indicators {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.color-dot {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.color-dot:hover {
+    transform: scale(1.1);
+}
+
+.color-dot.black {
+    background: #1a1a1a;
+}
+
+.color-dot.purple {
+    background: #9c27b0;
+}
+
+.color-dot.orange {
+    background: #ff9800;
+}
+
+.color-dot.teal {
+    background: #00bfa5;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .controls-left {
+        flex-direction: row;
+    }
+
+    .color-indicators {
+        flex-direction: row;
+    }
+
+    .card-wrapper {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .form-card {
+        padding: 28px 24px;
+    }
+}
+
+/* @media (max-width: 480px) {
+  .form-card {
+    width: calc(100vw - 32px);
+    max-height: calc(100vh - 64px);
+    padding: 16px;
+  }
+} */
+
+.card-list {
+  position: relative;
+  width: 420px; /* set to your card width */
+  height: 580px; /* enough height for n cards and shadows */
+  margin-right: 35px;
+}
+
+.card-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-radius: 24px;
+} 
+
+.card-wrapper::before,
+.card-wrapper::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  border-radius: 24px;
+  border: 2px solid rgba(255,255,255,0.09);  
+  z-index: -2;
+  pointer-events: none;
+  transition: all 0.3s;
+} 
+
+.card-wrapper::before {
+  bottom: 8px;
+  opacity: 0.8;
+}
+.card-wrapper::after {
+  bottom: 10px;
+  opacity: 0.1;
+}

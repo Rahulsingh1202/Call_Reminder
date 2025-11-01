@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card with Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Left Controls -->
+        <div class="controls-left">
+            <button class="control-btn" id="addBtn" type="button" aria-label="Add note" title="Add note">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+            </button>
+            <button class="control-btn" id="prevBtn" type="button" aria-label="Previous" title="Previous">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="18 15 12 9 6 15"></polyline>
+                </svg>
+            </button>
+            <button class="control-btn" id="nextBtn" type="button" aria-label="Next" title="Next">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Card Container -->
+        <div class="card-list">
+        </div>
+        <!-- Profile Card -->
+           
+
+            <!-- Form Card (Hidden by default) -->
+        <div class="form-card" id="formCard" style="display: none;">
+            <h1 class="form-title">New Call</h1>
+
+            <form id="callForm">
+                <!-- Image URL -->
+                <div class="form-group">
+                    <label for="imageUrl" class="form-label">Image URL</label>
+                    <input required
+                        type="url" 
+                        id="imageUrl" 
+                        class="form-input" 
+                        placeholder="https://example.com/photo.jpg"
+                    >
+                </div>
+
+                <!-- Full Name -->
+                <div class="form-group">
+                    <label for="fullName" class="form-label">Full Name</label>
+                    <input required
+                        type="text" 
+                        id="fullName" 
+                        class="form-input" 
+                        placeholder="Enter full name"
+                    >
+                </div>
+
+                <!-- Home Town -->
+                <div class="form-group">
+                    <label for="homeTown" class="form-label">Home Town</label>
+                    <input required
+                        type="text" 
+                        id="homeTown" 
+                        class="form-input" 
+                        placeholder="Enter home town"
+                    >
+                </div>
+
+                <!-- Purpose -->
+                <div class="form-group">
+                    <label for="purpose" class="form-label">Purpose</label>
+                    <input required
+                        type="text" 
+                        id="purpose" 
+                        class="form-input" 
+                        placeholder="e.g., Quick appointment note"
+                    >
+                </div>
+
+                <!-- Category --> 
+                <div class="form-group">
+                    <label class="form-label">Category</label>
+                    <div class="category-options">
+                        <label class="category-chip checked-emergency">
+                            <input required type="radio" id="emergency" name="category" value="emergency" checked>
+                            <span class="chip-text">Emergency</span>
+                        </label>
+
+                        <label class="category-chip checked-important">
+                            <input required type="radio" id="important" name="category" value="important">
+                            <span class="chip-text">Important</span>
+                        </label>
+
+                        <label class="category-chip checked-urgent">
+                            <input required type="radio" id="urgent" name="category" value="urgent">
+                            <span class="chip-text">Urgent</span>
+                        </label>
+
+                        <label class="category-chip checked-norush">
+                            <input required type="radio" id="norush" name="category" value="norush">
+                            <span class="chip-text">No Rush</span>
+                        </label>
+                    </div>
+                </div>
+
+                    <!-- Buttons -->
+                    <button type="submit" class="btn btn-create">Create Note</button>
+                    <button type="button" class="btn btn-close" id="closeFormBtn">Close</button>
+            </form>
+        </div>
+    </div>
+
+        <!-- Right Color Indicators -->
+        <div class="color-indicators">
+            <div class="color-dot black"></div>
+            <div class="color-dot purple"></div>
+            <div class="color-dot orange"></div>
+            <div class="color-dot teal"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
